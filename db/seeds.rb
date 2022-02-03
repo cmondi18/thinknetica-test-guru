@@ -34,7 +34,7 @@ java_beginner_question2 = Question.create!(body: 'Can we override the private me
 java_beginner_question3 = Question.create!(body: 'Difference between List and Set in Java?',
                                            test_id: java_beginner.id)
 
-puts 'Create answers 🔠'
+puts 'Creating answers 🔠'
 puts 'For Ruby Basics Test ⚫'
 Answer.create!(body: 'Variables are used to store information to be referenced and manipulated in a computer program',
                correct: true,
@@ -80,7 +80,7 @@ Answer.create!(body: 'List allows duplicate, Set doesn\'t', correct: true, quest
 Answer.create!(body: 'Is the same things', question_id: java_beginner_question3.id)
 Answer.create!(body: 'List can\'t be used in private methods, but Set - can')
 
-puts 'Create user 👤'
+puts 'Creating users 👤'
 User.create!(username: 'TheNewbie123')
 User.create!(username: 'Senior_Dev')
 
