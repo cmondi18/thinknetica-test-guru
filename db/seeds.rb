@@ -81,7 +81,12 @@ Answer.create!(body: 'Is the same things', question_id: java_beginner_question3.
 Answer.create!(body: 'List can\'t be used in private methods, but Set - can')
 
 puts 'Creating users 👤'
-User.create!(username: 'TheNewbie123')
-User.create!(username: 'Senior_Dev')
+newbie_user = User.create!(username: 'TheNewbie123')
+pro_user = User.create!(username: 'Senior_Dev')
+
+puts 'Creating user tests ✏️'
+UserTest.create!(user_id: newbie_user.id, test_id: java_beginner.id)
+UserTest.create!(user_id: pro_user.id, test_id: ruby_basics.id, finished: true)
+UserTest.create!(user_id: pro_user.id, test_id: ruby_professional.id)
 
 puts 'Seeding is done ✅'
