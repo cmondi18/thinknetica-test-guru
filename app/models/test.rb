@@ -1,7 +1,10 @@
 class Test < ApplicationRecord
+  has_many :questions
+  belongs_to :category
+
   def self.test_titles_by_category(category)
-    Test.joins('JOIN categories ON tests.category_id = categories.id')
-        .where('categories.title = ?', category)
+    Test.joins(:category)
+        .where(category: { title: category })
         .order(title: :desc)
         .pluck(:title)
   end
