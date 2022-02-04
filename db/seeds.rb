@@ -85,8 +85,8 @@ newbie_user = User.create!(username: 'TheNewbie123')
 pro_user = User.create!(username: 'Senior_Dev')
 
 puts 'Creating user tests ✏️'
-UserTest.create!(user_id: newbie_user.id, test_id: java_beginner.id)
-UserTest.create!(user_id: pro_user.id, test_id: ruby_basics.id, finished: true)
-UserTest.create!(user_id: pro_user.id, test_id: ruby_professional.id)
+UsersTest.create!(user_id: newbie_user.id, test_id: java_beginner.id)
+UsersTest.create!(user_id: pro_user.id, test_id: ruby_basics.id, finished: true)
+UsersTest.create!(user_id: pro_user.id, test_id: ruby_professional.id)
 
 puts 'Seeding is done ✅'

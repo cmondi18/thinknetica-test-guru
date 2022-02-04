@@ -1,5 +1,7 @@
 class Test < ApplicationRecord
   has_many :questions
+  has_many :users_tests
+  has_many :users, through: :users_tests
   belongs_to :category
 
   def self.test_titles_by_category(category)
