@@ -5,10 +5,13 @@ class Test < ApplicationRecord
   belongs_to :author, foreign_key: :user_id, class_name: 'User'
   belongs_to :category
 
-  def self.test_titles_by_category(category)
-    Test.joins(:category)
-        .where(category: { title: category })
-        .order(title: :desc)
-        .pluck(:title)
-  end
+  scope :easy, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where('level > 5') }
+  scope :titles_by_category, ->(category) {
+    joins(:category)
+      .where(category: { title: category })
+      .order(title: :desc)
+      .pluck(:title)
+  }
 end
