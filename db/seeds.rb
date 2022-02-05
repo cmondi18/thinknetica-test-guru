@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'Creating creator'
+puts 'Creating creator 🤖'
 creator = User.create!(username: 'Johny, The Creator')
 
 puts 'Creating categories 💬'

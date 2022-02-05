@@ -5,10 +5,18 @@ class Test < ApplicationRecord
   belongs_to :author, foreign_key: :user_id, class_name: 'User'
   belongs_to :category
 
-  def self.test_titles_by_category(category)
-    Test.joins(:category)
-        .where(category: { title: category })
-        .order(title: :desc)
-        .pluck(:title)
+  scope :easy, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where('level > 5') }
+  scope :by_category, ->(category) {
+    joins(:category)
+      .where(category: { title: category })
+  }
+
+  validates :title, presence: true, uniqueness: { scope: :level }
+  validates :level, numericality: { greater_than_or_equal_to: 0 }
+
+  def self.titles_by_category(category)
+    by_category(category).order(title: :desc).pluck(:title)
   end
 end
