@@ -8,14 +8,17 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where('level > 5') }
-  scope :titles_by_category, ->(category) {
+  scope :by_category, ->(category) {
     joins(:category)
       .where(category: { title: category })
       .order(title: :desc)
-      .pluck(:title)
   }
 
   validates :title, presence: true
   validates :level, numericality: { greater_than_or_equal_to: 0 }
   validates :title, uniqueness: { scope: :level }
+
+  def self.titles_by_category(category)
+    by_category(category).pluck(:title)
+  end
 end
