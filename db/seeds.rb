@@ -6,14 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'Creating creator'
+creator = User.create!(username: 'Johny, The Creator')
+
 puts 'Creating categories 💬'
 ruby_category = Category.create!(title: 'Ruby')
 java_category = Category.create!(title: 'Java')
 
 puts 'Creating tests 🗒️'
-ruby_basics = Test.create!(title: 'Ruby Basics', level: 1, category_id: ruby_category.id)
-ruby_professional = Test.create!(title: 'Ruby for professional development', level: 4, category_id: ruby_category.id)
-java_beginner = Test.create!(title: 'Java Beginner', level: 2, category_id: java_category.id)
+ruby_basics = Test.create!(title: 'Ruby Basics', level: 1, category_id: ruby_category.id, author: creator)
+ruby_professional = Test.create!(title: 'Ruby for professional development', level: 4, category_id: ruby_category.id, author: creator)
+java_beginner = Test.create!(title: 'Java Beginner', level: 2, category_id: java_category.id, author: creator)
 
 puts 'Creating questions ❓'
 ruby_basics_question1 = Question.create!(body: 'What is var?', test_id: ruby_basics.id)
@@ -78,15 +81,15 @@ Answer.create!(body: 'Sometimes yes, sometimes no', question_id: java_beginner_q
 
 Answer.create!(body: 'List allows duplicate, Set doesn\'t', correct: true, question_id: java_beginner_question3.id)
 Answer.create!(body: 'Is the same things', question_id: java_beginner_question3.id)
-Answer.create!(body: 'List can\'t be used in private methods, but Set - can')
+Answer.create!(body: 'List can\'t be used in private methods, but Set - can', question_id: java_beginner_question3.id)
 
 puts 'Creating users 👤'
 newbie_user = User.create!(username: 'TheNewbie123')
 pro_user = User.create!(username: 'Senior_Dev')
 
 puts 'Creating user tests ✏️'
-UserTest.create!(user_id: newbie_user.id, test_id: java_beginner.id)
-UserTest.create!(user_id: pro_user.id, test_id: ruby_basics.id, finished: true)
-UserTest.create!(user_id: pro_user.id, test_id: ruby_professional.id)
+UsersTest.create!(user_id: newbie_user.id, test_id: java_beginner.id)
+UsersTest.create!(user_id: pro_user.id, test_id: ruby_basics.id, finished: true)
+UsersTest.create!(user_id: pro_user.id, test_id: ruby_professional.id)
 
 puts 'Seeding is done ✅'
