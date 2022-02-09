@@ -1,9 +1,10 @@
 class TestsController < ApplicationController
   def index
-    render json: { tests: Test.all }
+    @tests = Test.all
   end
 
   def show
-    render json: { test: Test.find(params[:id]) }
+    @test = Test.find(params[:id])
+    @questions = @test.questions
   end
 end

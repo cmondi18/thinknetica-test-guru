@@ -1,32 +1,42 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: %w[index create]
-  before_action :set_question, only: %w[show destroy]
+  before_action :set_test, only: %w[create new]
+  before_action :set_question, only: %w[show destroy edit update]
   # used to test via requests (ex. Postman)
-  skip_before_action :verify_authenticity_token, only: :destroy
+  # skip_before_action :verify_authenticity_token, only: :destroy
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def show; end
 
-  def index; end
-
-  def new; end
+  def new
+    @question = @test.questions.new
+  end
 
   def create
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_questions_path
+      redirect_to test_path(@test)
     else
-      render plain 'Something went wrong'
+      render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
   def destroy
     if @question.destroy
-      render plain: 'Question was deleted'
+      redirect_to test_path(@question.test)
     else
-      render plain 'Something went wrong'
+      render :show
     end
   end
 
