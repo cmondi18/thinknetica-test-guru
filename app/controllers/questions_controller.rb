@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_test, only: %w[create new]
-  before_action :set_question, only: %w[show destroy]
+  before_action :set_question, only: %w[show destroy edit update]
   # used to test via requests (ex. Postman)
   # skip_before_action :verify_authenticity_token, only: :destroy
 
@@ -19,6 +19,16 @@ class QuestionsController < ApplicationController
       redirect_to test_path(@test)
     else
       render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
