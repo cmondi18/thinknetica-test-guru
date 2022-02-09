@@ -34,9 +34,9 @@ class QuestionsController < ApplicationController
 
   def destroy
     if @question.destroy
-      render plain: 'Question was deleted'
+      redirect_to test_path(@question.test)
     else
-      render plain 'Something went wrong'
+      render :show
     end
   end
 

@@ -1,1 +1,5 @@
-<%= render @question %>
+<h1>Question:</h1>
+<p><%= @question.body %></p>
+<p><%= link_to 'Edit question', edit_question_path %></p>
+<p><%= link_to 'Delete question', question_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<p><%= link_to 'All questions', test_path(@question.test) %></p>
