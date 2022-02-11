@@ -23,7 +23,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    result > SUCCESSFUL_RATE
+    result >= SUCCESSFUL_RATE
   end
 
   def question_position
