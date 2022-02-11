@@ -26,6 +26,10 @@ class TestPassage < ApplicationRecord
     result > SUCCESSFUL_RATE
   end
 
+  def question_position
+    test.questions.find_index(current_question) + 1
+  end
+
   private
 
   def before_validation_set_first_question
