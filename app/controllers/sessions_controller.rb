@@ -5,11 +5,14 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    puts params
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
+      if session[:return_to].present?
+        redirect_to session[:return_to]
+      else
+        redirect_to root_path
+      end
     else
       register_flash_now_message(:alert,
                                  'Are you a Guru? Verify your email and password, please')
