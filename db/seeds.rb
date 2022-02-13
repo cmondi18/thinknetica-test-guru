@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Creating creator 🤖'
-creator = User.create!(username: 'Johny, The Creator')
+creator = User.create!(email: 'creator@admin.com', password: 'strong_password')
 
 puts 'Creating categories 💬'
 ruby_category = Category.create!(title: 'Ruby')
@@ -84,14 +84,7 @@ Answer.create!(body: 'Is the same things', question_id: java_beginner_question3.
 Answer.create!(body: 'List can\'t be used in private methods, but Set - can', question_id: java_beginner_question3.id)
 
 puts 'Creating users 👤'
-newbie_user = User.create!(username: 'TheNewbie123')
-pro_user = User.create!(username: 'Senior_Dev')
-
-puts 'Creating user tests ✏️'
-=begin
-UsersTest.create!(user_id: newbie_user.id, test_id: java_beginner.id)
-UsersTest.create!(user_id: pro_user.id, test_id: ruby_basics.id, finished: true)
-UsersTest.create!(user_id: pro_user.id, test_id: ruby_professional.id)
-=end
+newbie_user = User.create!(email: 'TheNewbie123@test.com', password: 'strong_password')
+pro_user = User.create!(email: 'Senior_Dev@test.com', password: 'strong_password')
 
 puts 'Seeding is done ✅'
