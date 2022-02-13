@@ -18,7 +18,6 @@ class TestsController < ApplicationController
   def edit; end
 
   def create
-    # TODO: add the current user to author after authorization realise
     @test = Test.new(test_params.merge(author: @user))
 
     if @test.save
@@ -60,6 +59,6 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    @user = User.find_by(id: session[:user_id])
   end
 end
