@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :created_tests, foreign_key: :user_id, class_name: 'Test'
 
-  validates :email, presence: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   has_secure_password
 
   def tests_by_level(level)
