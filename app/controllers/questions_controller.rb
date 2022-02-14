@@ -1,8 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_test, only: %w[create new]
   before_action :set_question, only: %w[show destroy edit update]
-  # used to test via requests (ex. Postman)
-  # skip_before_action :verify_authenticity_token, only: :destroy
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
