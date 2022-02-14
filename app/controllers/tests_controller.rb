@@ -10,13 +10,13 @@ class TestsController < ApplicationController
   end
 
   def new
-    @test = Test.new
+    @test = current_user.created_tests.new
   end
 
   def edit; end
 
   def create
-    @test = Test.new(test_params.merge(author: @current_user))
+    @test = current_user.created_tests.new(test_params)
 
     if @test.save
       redirect_to @test
