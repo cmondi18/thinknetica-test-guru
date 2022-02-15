@@ -27,10 +27,6 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(current_user)
-    if current_user.is_a?(Admin)
-      admin_tests_path
-    else
-      tests_path
-    end
+    current_user.is_admin? ? admin_tests_path : tests_path
   end
 end
