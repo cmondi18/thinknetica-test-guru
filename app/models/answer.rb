@@ -6,6 +6,6 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
 
   def validate_count_of_answers
-    errors.add[:count_answers] if question.answers.count >= 4
+    errors[:count_answers] << 'Maximum of answers is 4' if question.answers.count >= 4
   end
 end

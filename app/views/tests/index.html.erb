@@ -4,13 +4,10 @@
       <th>Title</th>
       <th>Level</th>
       <th>Questions count</th>
-      <th colspan="4">Actions</th>
+      <th colspan>Actions</th>
     </tr>
     <%= render @tests %>
   </table>
 <% else %>
   <h1>You don't have any tests</h1>
 <% end %>
-<p>
-  <%= link_to 'Add new test', new_test_path %>
-</p>

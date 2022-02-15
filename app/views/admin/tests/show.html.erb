@@ -1,0 +1,21 @@
+<h1>Test <%= @test.title %></h1>
+<% if @test.questions.present? %>
+  <table>
+    <tr>
+      <th>Question</th>
+      <th colspan="3">Actions</th>
+    </tr>
+    <%= render @questions %>
+  </table>
+<% else %>
+  <p>This test doesn't have any questions</p>
+<% end %>
+<p>
+  <%= link_to 'Add new question', new_admin_test_question_path(@test) %>
+</p>
+<p>
+  <%= link_to 'Edit', edit_admin_test_path(@test) %>
+</p>
+<p>
+  <%= link_to 'Back to list of tests', admin_tests_path %>
+</p>
