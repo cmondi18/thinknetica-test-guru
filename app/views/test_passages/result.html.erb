@@ -1,12 +1,12 @@
-<h1>The <%= @test_passage.test.title %> was completed</h1>
-<b>You <%= @test_passage.success? ? 'passed' : 'failed' %> the test.</b>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<b><%= @test_passage.success? ? t('.passed') : t('.failed') %></b>
 <b>
-  Your result is
+  <%= t('.result') %>
   <span
     style="color:<%= @test_passage.success? ? 'green' : 'red' %>"><%= @test_passage.result %>%
   </span>
 </b>
 
 <p>
-  <%= link_to 'Back to list of tests', tests_path %>
+  <%= link_to t('.back_to_tests'), tests_path %>
 </p>

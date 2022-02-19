@@ -31,3 +31,81 @@
 
 en:
   hello: "Hello world"
+
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+    select:
+      prompt: "Please select"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests:
+    index:
+      header: "Tricky Tests"
+      title: "Title"
+      level: "Level"
+      questions_count: "Questions count"
+      actions: "Actions"
+      no_tests: "You don't have any tests"
+    test:
+      start: "Start"
+
+  test_passages:
+    show:
+      header: "Passing the %{title} test"
+      current_question_is: "Current question is"
+      next: "Next"
+    result:
+      header: "The %{title} test was completed!"
+      passed: "You passed the test."
+      failed: "You failed the test."
+      result: "Your result is"
+      back_to_tests: "Back to list of tests"
+
+  admin:
+    tests:
+      new:
+        header: "Create new test"
+      create:
+        success: "Test was successfully created."
+      index:
+        header: "Tricky Tests"
+        title: "Title"
+        level: "Level"
+        questions_count: "Questions count"
+        actions: "Actions"
+        no_tests: "You don't have any tests"
+        add_new: "Add new test"
+      show:
+        header: "Test %{title}"
+        questions: "Questions"
+        actions: "Actions"
+        no_questions: "This test doesn't have any questions"
+        new_question: "Add new question"
+        edit: "Edit"
+        back_to_tests: "Back to list of tests"
+      edit:
+        header: "Edit test"
+      form:
+        back_to_tests: "Back to list of tests"
+      test:
+        edit: "Edit"
+        show: "Show"
+        delete: "Delete"
+        confirm: "Are you sure?"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
