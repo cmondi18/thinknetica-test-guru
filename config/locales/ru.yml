@@ -25,6 +25,13 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      questions_count: "Количество вопросов"
+      actions: "Действия"
+      no_tests: "У вас нет тестов"
+    test:
+      start: "Начать"
 
   test_passages:
     result:

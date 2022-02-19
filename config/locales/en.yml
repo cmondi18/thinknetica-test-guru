@@ -54,6 +54,13 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+      title: "Title"
+      level: "Level"
+      questions_count: "Questions count"
+      actions: "Actions"
+      no_tests: "You don't have any tests"
+    test:
+      start: "Start"
 
   test_passages:
     result:
