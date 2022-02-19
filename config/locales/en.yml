@@ -63,8 +63,16 @@ en:
       start: "Start"
 
   test_passages:
+    show:
+      header: "Passing the %{title} test"
+      current_question_is: "Current question is"
+      next: "Next"
     result:
       header: "The %{title} test was completed!"
+      passed: "You passed the test."
+      failed: "You failed the test."
+      result: "Your result is"
+      back_to_tests: "Back to list of tests"
 
   admin:
     tests:

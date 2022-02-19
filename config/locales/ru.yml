@@ -34,8 +34,16 @@ ru:
       start: "Начать"
 
   test_passages:
+    show:
+      header: "Проходим тест %{title}"
+      current_question_is: "Текущий вопрос"
+      next: "Следующий вопрос"
     result:
       header: "Тест %{title} успешно завершен!"
+      passed: "Вы успешно прошли тест."
+      failed: "К сожалению, тест не пройден."
+      result: "Ваш результат - "
+      back_to_tests: "К списку всех тестов"
 
   admin:
     tests:
