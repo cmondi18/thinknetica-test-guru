@@ -32,10 +32,35 @@ ru:
 
   admin:
     tests:
+      new:
+        header: "Создать новый тест"
       create:
         success: "Тест успешно создан."
       index:
         header: "Доступные тесты"
+        title: "Название"
+        level: "Уровень"
+        questions_count: "Количество вопросов"
+        actions: "Действия"
+        no_tests: "У вас нет созданных тестов"
+        add_new: "Добавить новый тест"
+      show:
+        header: "Тест %{title}"
+        questions: "Вопросы"
+        actions: "Действия"
+        no_questions: "У данного теста еще нет вопросов"
+        new_question: "Добавить новый вопрос"
+        edit: "Редактировать"
+        back_to_tests: "К списку всех тестов"
+      edit:
+        header: "Редактировать тест"
+      form:
+        back_to_tests: "К списку всех тестов"
+      test:
+        edit: "Редактировать"
+        show: "Показать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"
 
   tests_mailer:
     completed_test:

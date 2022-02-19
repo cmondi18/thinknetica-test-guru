@@ -61,10 +61,35 @@ en:
 
   admin:
     tests:
+      new:
+        header: "Create new test"
       create:
         success: "Test was successfully created."
       index:
         header: "Tricky Tests"
+        title: "Title"
+        level: "Level"
+        questions_count: "Questions count"
+        actions: "Actions"
+        no_tests: "You don't have any tests"
+        add_new: "Add new test"
+      show:
+        header: "Test %{title}"
+        questions: "Questions"
+        actions: "Actions"
+        no_questions: "This test doesn't have any questions"
+        new_question: "Add new question"
+        edit: "Edit"
+        back_to_tests: "Back to list of tests"
+      edit:
+        header: "Edit test"
+      form:
+        back_to_tests: "Back to list of tests"
+      test:
+        edit: "Edit"
+        show: "Show"
+        delete: "Delete"
+        confirm: "Are you sure?"
 
   tests_mailer:
     completed_test:
