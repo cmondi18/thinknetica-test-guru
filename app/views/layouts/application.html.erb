@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>ThinkneticaTestGuru</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -11,9 +14,12 @@
   </head>
 
   <body>
-    <%= display_flashes %>
     <%= render 'shared/navigation' %>
-    <%= yield %>
+
+    <div class="container">
+      <%= display_flashes %>
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
