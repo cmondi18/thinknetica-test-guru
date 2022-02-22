@@ -1,6 +1,6 @@
 <tr>
   <td><%= test.title %></td>
-  <td><%= test.level %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
+  <td style="text-align: center"><%= test.level %></td>
+  <td style="text-align: center"><%= test.questions.count%></td>
+  <td style="text-align: center"><%= button_to t('.start'), start_test_path(test), class: 'btn btn-primary', display: 'inline-block'%></td>
 </tr>
