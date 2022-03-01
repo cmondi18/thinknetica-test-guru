@@ -12,11 +12,6 @@ class GithubClient
   private
 
   def setup_http_client
-    Octokit::Client.new(personal_access_token: ACCESS_TOKEN)
-  end
-
-  def create_auth
-    @http_client.create_authorization(scopes: ['user'], note: 'Name of token',
-                                      headers: { 'X-GitHub-OTP' => '<your 2FA token>' })
+    Octokit::Client.new(access_token: ACCESS_TOKEN)
   end
 end
