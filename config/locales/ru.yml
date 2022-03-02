@@ -55,7 +55,7 @@ ru:
       create:
         success: "Тест успешно создан."
       index:
-        header: "Доступные тесты"
+        header: "Админская панель тестов"
         title: "Название"
         level: "Уровень"
         questions_count: "Количество вопросов"
