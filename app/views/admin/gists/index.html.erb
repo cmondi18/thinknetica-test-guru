@@ -1,0 +1,15 @@
+<h1><%= t('.header') %></h1>
+
+<% if @gists.present? %>
+  <table>
+    <tr>
+      <th><%= t('.question') %></th>
+      <th><%= t('.URL') %></th>
+      <th><%= t('.author') %></th>
+      <th colspan="1"><%= t('.actions') %></th>
+    </tr>
+    <%= render @gists %>
+  </table>
+<% else %>
+  <h1><%= t('.no_tests') %></h1>
+<% end %>

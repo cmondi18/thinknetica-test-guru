@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Creating creator 🤖'
-creator = User.create!(email: 'creator@admin.com', password: 'strong_password')
+creator = Admin.create!(email: 'creator@admin.com', password: 'strong_password', first_name: 'The', last_name: 'Creator')
 
 puts 'Creating categories 💬'
 ruby_category = Category.create!(title: 'Ruby')
