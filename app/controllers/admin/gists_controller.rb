@@ -4,6 +4,6 @@ class Admin::GistsController < Admin::BaseController
   end
 
   def show
-
+    @gist = Gist.find(params[:id])
   end
 end

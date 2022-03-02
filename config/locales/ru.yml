@@ -79,6 +79,13 @@ ru:
         show: "Показать"
         delete: "Удалить"
         confirm: "Вы уверены?"
+    gists:
+      index:
+        header: "Gists"
+        question: "Вопрос"
+        URL: "URL"
+        author: "Автор"
+        no_gists: "У вас нет созданных gists"
 
   tests_mailer:
     completed_test:
