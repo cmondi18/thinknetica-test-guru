@@ -44,6 +44,9 @@ ru:
       failed: "К сожалению, тест не пройден."
       result: "Ваш результат - "
       back_to_tests: "К списку всех тестов"
+    gist:
+      success: "Gist успешно сохранен. Вы можете найти его здесь - %{gist_url}"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     tests:
@@ -52,7 +55,7 @@ ru:
       create:
         success: "Тест успешно создан."
       index:
-        header: "Доступные тесты"
+        header: "Админская панель тестов"
         title: "Название"
         level: "Уровень"
         questions_count: "Количество вопросов"
@@ -76,6 +79,13 @@ ru:
         show: "Показать"
         delete: "Удалить"
         confirm: "Вы уверены?"
+    gists:
+      index:
+        header: "Gists"
+        question: "Вопрос"
+        URL: "URL"
+        author: "Автор"
+        no_gists: "У вас нет созданных gists"
 
   tests_mailer:
     completed_test:

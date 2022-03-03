@@ -5,9 +5,17 @@
 
 <%= link_to 'New answer', new_admin_question_answer_path(@question) %>
 
-<ol>
-  <%= render @question.answers %>
-</ol>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Answer</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @question.answers %>
+  </tbody>
+</table>
 
 <p><%= link_to 'Edit question', edit_admin_question_path %></p>
 <p><%= link_to 'Delete question', admin_question_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
