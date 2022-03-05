@@ -79,6 +79,8 @@ ru:
         show: "Показать"
         delete: "Удалить"
         confirm: "Вы уверены?"
+      form_inline:
+        submit: "Ок"
     gists:
       index:
         header: "Gists"
