@@ -26,13 +26,15 @@ function sortRowsByTitle() {
         this.querySelector('.octicon-arrow-up').classList.add('hide')
     }
 
-    var sortedTable = document.createElementNS('guru', 'table')
+    var sortedTable = document.createElement('table')
 
     sortedTable.classList.add('table', 'table-hover')
-    sortedTable.appendChild(rows[0])
+    var header = sortedTable.createTHead()
+    header.appendChild(rows[0])
 
+    var body = sortedTable.createTBody()
     for (var i = 0; i < sortedRows.length; i++) {
-        sortedTable.appendChild(sortedRows[i])
+        body.appendChild(sortedRows[i])
     }
 
     table.parentNode.replaceChild(sortedTable, table)

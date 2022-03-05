@@ -11,7 +11,10 @@ function checkPassword() {
     if (password_confirm.value === '') {
         document.querySelector('.octicon-alert').classList.add('hide')
         document.querySelector('.octicon-check').classList.add('hide')
-    } else if (password.value === password_confirm.value) {
+        return
+    }
+
+    if (password.value === password_confirm.value) {
         document.querySelector('.octicon-check').classList.remove('hide')
         document.querySelector('.octicon-alert').classList.add('hide')
     } else {
