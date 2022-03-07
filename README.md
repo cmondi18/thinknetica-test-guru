@@ -1,6 +1,6 @@
 # README
 
-###List of the objects that contain in this application:
+List of the objects that contain in this application:
 
 - Tests
 - Questions
