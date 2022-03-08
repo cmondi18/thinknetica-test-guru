@@ -4,6 +4,9 @@
 // that code so it'll be compiled.
 require("../utilites/sorting.js")
 require("../utilites/password_check.js")
+require("../utilites/form_inline.js")
+require("../utilites/progress_bar")
+require("jquery")
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"

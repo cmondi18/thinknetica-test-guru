@@ -108,6 +108,8 @@ en:
         show: "Show"
         delete: "Delete"
         confirm: "Are you sure?"
+      form_inline:
+        submit: "OK"
     gists:
       index:
         header: "Gists"

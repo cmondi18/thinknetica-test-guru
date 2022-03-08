@@ -1,7 +1,15 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
-<b>
-  <%= t('.current_question_is') %> <%= @test_passage.question_position %>/<%= @test_passage.test.questions.count %>
-</b>
+<div class="progress'">
+  <%= t('.current_question_is') %>
+  <%= content_tag :div,
+                  class: 'progress-bar progress-bar-striped',
+                  role: 'progressbar',
+                  data: { current: @test_passage.question_position,
+                          count: @test_passage.test.questions.count },
+                  style: "width: 0%" do %>
+    <%= @test_passage.question_position %>/<%= @test_passage.test.questions.count %>
+  <% end %>
+</div>
 
 <br>
 
