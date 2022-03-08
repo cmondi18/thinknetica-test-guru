@@ -6,7 +6,7 @@ class TestsController < ApplicationController
 
   def start
     if @test.questions.empty?
-      flash[:error] = 'Can start test without questions'
+      flash[:error] = 'Can\'t start test without questions'
       render :index
     else
       current_user.tests.push(@test)
