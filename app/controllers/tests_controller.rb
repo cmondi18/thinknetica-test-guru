@@ -5,19 +5,14 @@ class TestsController < ApplicationController
   def index; end
 
   def start
-    if @test.questions.empty?
-      flash[:error] = 'Can\'t start test without questions'
-      render :index
-    else
-      current_user.tests.push(@test)
-      redirect_to current_user.test_passage(@test)
-    end
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
 
   def set_tests
-    @tests = Test.all
+    @tests = Test.where(public: true)
   end
 
   def set_test

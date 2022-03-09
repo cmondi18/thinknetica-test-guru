@@ -91,6 +91,7 @@ en:
         title: "Title"
         level: "Level"
         questions_count: "Questions count"
+        public: "Public"
         actions: "Actions"
         no_tests: "You don't have any tests"
         add_new: "Add new test"
