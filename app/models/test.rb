@@ -12,6 +12,7 @@ class Test < ApplicationRecord
     joins(:category)
       .where(category: { title: category })
   }
+  scope :published, -> { where(public: true) }
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { greater_than_or_equal_to: 0 }
