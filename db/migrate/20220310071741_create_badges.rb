@@ -4,6 +4,8 @@ class CreateBadges < ActiveRecord::Migration[6.1]
       t.string :title, null: false
       t.string :file_name, null: false
       t.integer :type, null: false
+      t.integer :level
+      t.references :category, foreign_key: true
 
       t.timestamps
     end
