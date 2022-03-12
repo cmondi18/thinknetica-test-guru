@@ -27,6 +27,8 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+
+    resources :badges
   end
 
   resources :feedbacks, only: %i[new create]

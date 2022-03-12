@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_03_10_143433) do
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
     t.string "file_name", null: false
-    t.integer "type", null: false
+    t.integer "badge_type", null: false
     t.integer "level"
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false

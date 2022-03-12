@@ -1,0 +1,34 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+
+  <div class="form-group">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, id: :badge_title %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :file_name, class: "form-label" %>
+    <%= form.text_field :file_name, id: :badge_file_name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :badge_type, class: "form-label" %>
+    <%= form.collection_select :badge_type, Badge.badge_types, :first, :first, prompt: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :level, class: "form-label" %>
+    <%= form.number_field :level, id: :badge_level %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :category_id, class: "form-label" %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </div>
+
+  <div class="form-group"><%= form.submit class: "btn btn-primary" %></div>
+<% end %>
+
+<p>
+  <%= link_to t('.back_to_badges'), admin_badges_path%>
+</p>
