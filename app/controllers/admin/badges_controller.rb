@@ -18,6 +18,7 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   private
+
   def badge_params
     params.require(:badge).permit(:title, :file_name, :badge_type, :level, :category_id)
   end
