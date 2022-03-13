@@ -4,6 +4,8 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def new
+    @images = Dir.glob('app/assets/images/badges/*.png')
+
     @badge = Badge.new
   end
 
