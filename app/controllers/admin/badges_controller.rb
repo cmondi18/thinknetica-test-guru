@@ -19,6 +19,16 @@ class Admin::BadgesController < Admin::BaseController
     end
   end
 
+  def destroy
+    @badge = Badge.find(params[:id])
+
+    if @badge.destroy
+      redirect_to admin_badges_path, notice: 'Badge was successfully deleted.'
+    else
+      render :index
+    end
+  end
+
   private
 
   def badge_params

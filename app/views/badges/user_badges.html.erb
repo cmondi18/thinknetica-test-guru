@@ -12,7 +12,6 @@
       <th scope="col" style="text-align: center"><%= t('.type') %></th>
       <th scope="col" style="text-align: center"><%= t('.level') %></th>
       <th scope="col" style="text-align: center"><%= t('.category') %></th>
-      <th scope="col" style="text-align: center" colspan="1"><%= t('.actions') %></th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +22,6 @@
   <h1><%= t('.no_badges') %></h1>
 <% end %>
 <p>
-  <%= link_to t('.add_new'), new_admin_badge_path %>
+  <%= link_to t('.back_to_all'), badges_path %>
 </p>
 <a target="_blank" href="https://icons8.com/icon/SCF6RmWia0zD/achievement">Achievement</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

@@ -28,8 +28,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :badges
+    resources :badges, only: %i[new index create destroy]
   end
 
   resources :feedbacks, only: %i[new create]
+  resources :badges, only: :index do
+    get :user_badges, on: :collection
+  end
 end
