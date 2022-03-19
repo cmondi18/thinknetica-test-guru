@@ -40,6 +40,11 @@ class TestPassagesController < ApplicationController
     badges.each do |badge|
       case Badge.badge_types[badge.badge_type]
       when 0
+        byebug
+        category = badge.category_id
+        all_tests_on_category = Test.where(category: category).map(&:id)
+        all_passages_on_category = TestPassage.all.where(current_question_id: nil).map(&:test).map(&:id).uniq
+        current_user.badges << badge if all_tests_on_category.sort == all_passages_on_category.sort
       when 1
       when 2
         if TestPassage.where(user: @test_passage.user, test: @test_passage.test).count == 1 && @test_passage.success?
