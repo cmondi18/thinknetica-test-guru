@@ -40,12 +40,17 @@ class TestPassagesController < ApplicationController
     badges.each do |badge|
       case Badge.badge_types[badge.badge_type]
       when 0
-        byebug
         category = badge.category_id
         all_tests_on_category = Test.where(category: category).map(&:id)
-        all_passages_on_category = TestPassage.all.where(current_question_id: nil).map(&:test).map(&:id).uniq
+        # First take all finished TestPassages, then take all test from it, select where test category is equal badge category, then take uniq ids
+        all_passages_on_category = TestPassage.where(current_question_id: nil).map(&:test).select{ |test| test.category_id == category }.map(&:id).uniq
         current_user.badges << badge if all_tests_on_category.sort == all_passages_on_category.sort
       when 1
+        level = badge.level
+        all_tests_on_level = Test.where(level: level).map(&:id)
+        # First take all finished TestPassages, then take all test from it, select where test level is equal badge level, then take uniq ids
+        all_passages_on_level = TestPassage.where(current_question_id: nil).map(&:test).select{ |test| test.level == level }.map(&:id).uniq
+        current_user.badges << badge if all_tests_on_level.sort == all_passages_on_level.sort
       when 2
         if TestPassage.where(user: @test_passage.user, test: @test_passage.test).count == 1 && @test_passage.success?
           current_user.badges << badge
