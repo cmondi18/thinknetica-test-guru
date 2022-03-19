@@ -26,6 +26,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
+      give_badges
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -33,6 +34,20 @@ class TestPassagesController < ApplicationController
   end
 
   private
+
+  def give_badges
+    badges = Badge.all
+    badges.each do |badge|
+      case Badge.badge_types[badge.badge_type]
+      when 0
+      when 1
+      when 2
+        if TestPassage.where(user: @test_passage.user, test: @test_passage.test).count == 1 && @test_passage.success?
+          current_user.badges << badge
+        end
+      end
+    end
+  end
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])

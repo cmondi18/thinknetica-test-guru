@@ -1,11 +1,10 @@
 class Admin::BadgesController < Admin::BaseController
+  before_action :set_images, only: %i[new create]
   def index
     @badges = Badge.all
   end
 
   def new
-    @images = Dir.glob('app/assets/images/badges/*.png')
-
     @badge = Badge.new
   end
 
@@ -30,6 +29,10 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   private
+
+  def set_images
+    @images = Dir.glob('app/assets/images/badges/*.png')
+  end
 
   def badge_params
     params.require(:badge).permit(:title, :file_name, :badge_type, :level, :category_id, :test_id)
