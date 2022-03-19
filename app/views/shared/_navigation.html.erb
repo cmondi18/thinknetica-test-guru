@@ -6,6 +6,7 @@
         <%= link_to image_tag('admin.png', width: 50),  admin_tests_path %>
       <% end %>
       Welcome, <b><%= current_user.email %></b> Guru |
+      <%= link_to 'MyBadges', user_badges_badges_path %> |
       <%= link_to 'LogOut', destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Registration', new_user_registration_path %>
