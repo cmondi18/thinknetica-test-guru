@@ -2,8 +2,6 @@
   <td style="text-align: center"><%= image_tag badge.file_name %></td>
   <td style="text-align: center"><%= badge.title %></td>
   <td style="text-align: center"><%= badge.badge_type %></td>
-  <td style="text-align: center"><%= badge.level %></td>
-  <td style="text-align: center"><%= badge.category_id %></td>
-  <td style="text-align: center"><%= badge.test_id %></td>
+  <td style="text-align: center"><%= badge.achievement_condition %></td>
   <td style="text-align: center"><%= link_to 'Delete', admin_badge_path(badge), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>

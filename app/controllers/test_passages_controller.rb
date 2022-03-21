@@ -26,7 +26,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
-      give_badges
+      current_user.badges << BadgeService.new(@test_passage).call
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -36,6 +36,7 @@ class TestPassagesController < ApplicationController
   private
 
   def give_badges
+
     badges = Badge.all
     badges.each do |badge|
       case Badge.badge_types[badge.badge_type]
