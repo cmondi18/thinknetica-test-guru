@@ -27,7 +27,12 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+
+    resources :badges, only: %i[new index create destroy]
   end
 
   resources :feedbacks, only: %i[new create]
+  resources :badges, only: :index do
+    get :user_badges, on: :collection
+  end
 end

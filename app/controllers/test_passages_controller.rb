@@ -26,6 +26,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
+      give_badge if @test_passage.success?
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -36,5 +37,11 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def give_badge
+    badges = BadgeService.new(@test_passage).call
+    current_user.badges << badges
+    flash[:notice] = 'You have new badges, check it on badge page' if badges
   end
 end
