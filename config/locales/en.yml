@@ -83,10 +83,7 @@ en:
       icon: "Icon"
       title: "Title"
       type: "Type"
-      level: "Level"
-      category: "Category"
-      test: "Test"
-      actions: "Actions"
+      condition: "Condition"
       no_badges: "You don't have any badges"
       back_to_all: "Back to all"
     index:

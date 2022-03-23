@@ -16,13 +16,15 @@ class BadgeService
   private
 
   def all_categories(category)
-    all_tests_on_category = Test.where(category: category).pluck(:id)
-    all_passages_on_category = @user.test_passages.where(current_question_id: nil, test: all_tests_on_category).pluck(:id).uniq
+    all_tests_on_category = Test.where(category: Category.where(title: category)).pluck(:id)
+    all_passages_on_category = @user.test_passages.where(current_question_id: nil, test: all_tests_on_category, success: true).pluck(:test_id).uniq
     all_tests_on_category.sort == all_passages_on_category.sort
   end
 
   def all_levels(level)
-
+    all_tests_on_level = Test.where(level: level.to_i).pluck(:id)
+    all_passages_on_level = @user.test_passages.where(current_question_id: nil, test: all_tests_on_level, success: true).pluck(:test_id).uniq
+    all_tests_on_level.sort == all_passages_on_level.sort
   end
 
   def first_try(_option)

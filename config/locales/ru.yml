@@ -54,10 +54,7 @@ ru:
       icon: "Иконка"
       title: "Название"
       type: "Тип"
-      level: "Уровень"
-      category: "Категория"
-      test: "Тест"
-      actions: "Действия"
+      condition: "Условие"
       no_badges: "Вы еще не заработали бэйджов"
       back_to_all: "Вернуться ко всем"
     index:

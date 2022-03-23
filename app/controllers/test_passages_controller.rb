@@ -26,7 +26,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
-      current_user.badges << BadgeService.new(@test_passage).call
+      give_badge if @test_passage.success?
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -35,32 +35,13 @@ class TestPassagesController < ApplicationController
 
   private
 
-  def give_badges
-
-    badges = Badge.all
-    badges.each do |badge|
-      case Badge.badge_types[badge.badge_type]
-      when 0
-        category = badge.category_id
-        all_tests_on_category = Test.where(category: category).map(&:id)
-        # First take all finished TestPassages, then take all test from it, select where test category is equal badge category, then take uniq ids
-        all_passages_on_category = TestPassage.where(current_question_id: nil).map(&:test).select{ |test| test.category_id == category }.map(&:id).uniq
-        current_user.badges << badge if all_tests_on_category.sort == all_passages_on_category.sort
-      when 1
-        level = badge.level
-        all_tests_on_level = Test.where(level: level).map(&:id)
-        # First take all finished TestPassages, then take all test from it, select where test level is equal badge level, then take uniq ids
-        all_passages_on_level = TestPassage.where(current_question_id: nil).map(&:test).select{ |test| test.level == level }.map(&:id).uniq
-        current_user.badges << badge if all_tests_on_level.sort == all_passages_on_level.sort
-      when 2
-        if TestPassage.where(user: @test_passage.user, test: @test_passage.test).count == 1 && @test_passage.success?
-          current_user.badges << badge
-        end
-      end
-    end
-  end
-
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def give_badge
+    badges = BadgeService.new(@test_passage).call
+    current_user.badges << badges
+    flash[:notice] = 'You have new badges, check it on badge page' if badges
   end
 end
