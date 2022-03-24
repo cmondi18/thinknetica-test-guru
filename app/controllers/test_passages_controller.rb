@@ -41,7 +41,7 @@ class TestPassagesController < ApplicationController
   end
 
   def set_remaining_time
-    @remaining_time = (@test_passage.created_at + @test_passage.test.duration.minutes - Time.now).round
+    @remaining_time = (@test_passage.created_at + @test_passage.test.duration.minutes - Time.now).round if @test_passage.test.duration
   end
 
   def give_badge
