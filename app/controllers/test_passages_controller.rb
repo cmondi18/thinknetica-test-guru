@@ -25,7 +25,7 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
+    if @test_passage.completed? || @remaining_time <= 0
       TestsMailer.completed_test(@test_passage).deliver_now
       give_badge if @test_passage.success?
       redirect_to result_test_passage_path(@test_passage)
