@@ -1,4 +1,12 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<% if @test_passage.test.duration %>
+  <div class="timer">
+    <a>You have
+      <a id='seconds'><%= @remaining_time %></a>
+      seconds left</a>
+  </div>
+<% end %>
+
 <div class="progress'">
   <%= t('.current_question_is') %>
   <%= content_tag :div,

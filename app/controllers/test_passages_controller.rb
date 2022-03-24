@@ -1,5 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
+  before_action :set_remaining_time, only: %i[show update]
 
   def show; end
 
@@ -37,6 +38,10 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def set_remaining_time
+    @remaining_time = (@test_passage.created_at + @test_passage.test.duration.minutes - Time.now).round
   end
 
   def give_badge
