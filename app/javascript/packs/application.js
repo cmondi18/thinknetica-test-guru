@@ -6,6 +6,7 @@ require("../utilites/sorting.js")
 require("../utilites/password_check.js")
 require("../utilites/form_inline.js")
 require("../utilites/progress_bar")
+require("../utilites/timer")
 require("jquery")
 
 import Rails from "@rails/ujs"

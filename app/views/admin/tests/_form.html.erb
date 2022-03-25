@@ -16,6 +16,11 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :duration, class: "form-label" %>
+    <%= form.number_field :duration, id: :test_duration %>
+  </div>
+
   <div class="form-check">
     <a style="font-size: small">Please, don't make test public if you didn't prepare it (questions, answers and etc.)</a><br>
     <%= form.label :public, class: "form-label" %>
